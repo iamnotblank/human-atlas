@@ -9,6 +9,8 @@
     "dev": "vite --host 0.0.0.0 --port 3016",
     "build": "vite build",
     "build:vercel": "vite build",
+    "predeploy": "VITE_BASE=/human-atlas/ npm run build",
+    "deploy": "gh-pages -d dist",
     "check": "tsc --noEmit"
   },
   "dependencies": {
@@ -35,6 +37,7 @@
     "vinext": "1.0.0-beta.5"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "@cloudflare/vite-plugin": "1.37.1",
     "@cloudflare/workers-types": "4.20260515.1",
     "@openai/sites-vite-plugin": "0.2.0",

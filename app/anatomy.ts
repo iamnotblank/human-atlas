@@ -34,3 +34,5 @@ export const EXPLANATIONS:Record<string,string> = {
  'diaphragm':'A broad muscle separating the chest and abdomen. When it contracts, it increases chest volume and helps draw air into the lungs.',
 };
 export function explanation(name:string,system:SystemId){return EXPLANATIONS[name.toLowerCase()] ?? SYSTEMS.find(s=>s.id===system)?.description ?? '';}
+/** Prefixes absolute asset paths with the deploy base so the atlas also works under sub-path hosts like GitHub Pages. */
+export function withBase(url:string){const base=import.meta.env.BASE_URL??'/';if(!url.startsWith('/')||/^https?:/.test(url))return url;return `${base.replace(/\/$/,'')}${url}`;}
