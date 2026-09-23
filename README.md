@@ -55,13 +55,21 @@ The repository includes browser-ready geometry. Rebuilding it is optional: obtai
 
 ## Deploy
 
-The site is deployed to **GitHub Pages** via the `gh-pages` branch. To publish a new build:
+The site is deployed to **GitHub Pages** via the `gh-pages` branch.
+
+### Automatic
+
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys automatically on every push to `main`. It runs `npm run check`, builds with `VITE_BASE=/human-atlas/`, and pushes `dist/` to the `gh-pages` branch using the built-in `GITHUB_TOKEN`.
+
+### Manual
 
 ```sh
 npm run deploy
 ```
 
-This runs `predeploy` (which builds with `VITE_BASE=/human-atlas/`) and pushes `dist/` to the `gh-pages` branch. Enable Pages in **Repo Settings → Pages → Source: Deploy from a branch → `gh-pages` / root**.
+This runs `predeploy` (which builds with `VITE_BASE=/human-atlas/`) and pushes `dist/` to the `gh-pages` branch.
+
+Enable Pages in **Repo Settings → Pages → Source: Deploy from a branch → `gh-pages` / root**.
 
 The included `vercel.json` also allows importing into Vercel as a Vite project (`npm ci` → `npm run build` → `dist`). Any static host works; set `VITE_BASE` to the sub-path if not served from root.
 
