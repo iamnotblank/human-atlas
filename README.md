@@ -2,7 +2,7 @@
 
 An interactive 3D anatomy explorer built with React, Three.js, and shadcn/ui. Take the BodyParts3D adult male reference apart into **2,234 individually selectable meshes**, explore **15 anatomical systems**, and search **3,432 named concepts**.
 
-**[Explore the live demo](https://human-atlas-seven.vercel.app)**
+**[Explore the live demo](https://iamnotblank.github.io/human-atlas/)** · [Vercel mirror](https://human-atlas-seven.vercel.app)
 
 ## Explore
 
@@ -55,7 +55,15 @@ The repository includes browser-ready geometry. Rebuilding it is optional: obtai
 
 ## Deploy
 
-Import this repository into Vercel as a Vite project. The included `vercel.json` configures `npm ci`, `npm run build`, and the `dist` output directory. It can also be served by a static host.
+The site is deployed to **GitHub Pages** via the `gh-pages` branch. To publish a new build:
+
+```sh
+npm run deploy
+```
+
+This runs `predeploy` (which builds with `VITE_BASE=/human-atlas/`) and pushes `dist/` to the `gh-pages` branch. Enable Pages in **Repo Settings → Pages → Source: Deploy from a branch → `gh-pages` / root**.
+
+The included `vercel.json` also allows importing into Vercel as a Vite project (`npm ci` → `npm run build` → `dist`). Any static host works; set `VITE_BASE` to the sub-path if not served from root.
 
 ## License
 
